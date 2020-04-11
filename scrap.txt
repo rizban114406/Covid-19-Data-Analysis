@@ -13,6 +13,7 @@ vardata=google.visualization.arrayToDataTable([
 ['Date','NumberofPatients'],
 
 
+['11/04/2020',58],
 ['10/04/2020',94],
 ['09/04/2020',112],
 ['08/04/2020',54],
@@ -82,12 +83,12 @@ vardata=google.visualization.arrayToDataTable([
 
 
 ['<10',14],
-['11-20',29],
-['21-30',84],
-['31-40',91],
-['41-50',80],
-['51-60',69],
-['>60',57],
+['11-20',35],
+['21-30',92],
+['31-40',108],
+['41-50',95],
+['51-60',75],
+['>60',63],
 
 
 ]);
@@ -178,9 +179,9 @@ functiondrawChartOutCome(){
 
 vardata=google.visualization.arrayToDataTable([
 ['History','NoofCase',{role:'style'}],
-['UnderTreatment',364,'#3306cc'],
-['Cured',33,'#3316cc'],
-['Dead',27,'#3326cc'],
+['UnderTreatment',416,'#3306cc'],
+['Cured',36,'#3316cc'],
+['Dead',30,'#3326cc'],
 ]);
 
 varoptions={
@@ -203,8 +204,8 @@ functiondrawChart(){
 
 vardata=google.visualization.arrayToDataTable([
 ['Gender','NoofCase',{role:'style'}],
-['Female',134,'#3306cc'],
-['Male',290,'#3316cc'],
+['Female',144,'#3306cc'],
+['Male',338,'#3316cc'],
 ]);
 
 varoptions={

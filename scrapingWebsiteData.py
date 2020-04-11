@@ -116,8 +116,19 @@ while(index < len(template)-1):
 
 dateNumberofPatient= pd.DataFrame(dateNumberofPatient)
 dateNumberofPatient.columns = ['date', 'case']
+
+dateNumberofPatient.sort_index(ascending=False, inplace=True)
+noOfDay=dateNumberofPatient.date.count() + 1
+day=[]
+for x in range(1,noOfDay):
+    day.append(x)
+dateNumberofPatient['day']=day
 dateNumberofPatient.to_csv(r'caseBangladesh.csv')
 
+print(noOfDay)
+
+
+    
 #Making dataframe for (ageRange & case), Giving column name,Making csv file
 
 agegroupNumber= pd.DataFrame(agegroupNumber)
