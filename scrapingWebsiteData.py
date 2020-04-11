@@ -2,18 +2,18 @@ import re
 import psutil,os
 import bs4 as bs
 import urllib.request
-import re
+import pandas as pd
 
 main_url='http://119.40.84.187/surveillance/'
 source = urllib.request.urlopen(main_url).read()
 soup = bs.BeautifulSoup(source,'lxml')
 script=soup.find_all('script')
-# print(script)
+
 
 scrappedLines = []
 for lines in script:
     data = (str(lines)).replace('\r','')
-#     data = (str(data)).replace(' ','')
+# data = (str(data)).replace(' ','')
     scrappedLines.append(data)
 # print(scrappedLines)
 # print(len(scrappedLines))
@@ -34,6 +34,7 @@ file.close()
 file = open('scrap.txt','r')
 template = file.readlines()
 file.close()
+
 while '\n' in template: template.remove('\n')
 #print(len(template))
 #print(template)
@@ -48,8 +49,8 @@ genderNumber = []
 while(index < len(template)-1):
     index = index + 1
     template[index] = (template[index]).replace('\n','')
-    print(template[index])
-    print(dataFlag)
+#    print(template[index])
+#    print(dataFlag)
 #    print("bbbbbbbbbbbbbbbbbbbbbbbb")
 # Initialize Flag
     if "['Date','NumberofPatients']," in template[index]:
@@ -108,8 +109,31 @@ while(index < len(template)-1):
             continue
 
     
-    print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
-print(dateNumberofPatient)
-print(agegroupNumber)
-print(historyNumber)
-print(genderNumber)
+#    print("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
+
+
+#Making dataframe for (date & case), Giving column name,Making csv file
+
+dateNumberofPatient= pd.DataFrame(dateNumberofPatient)
+dateNumberofPatient.columns = ['date', 'case']
+dateNumberofPatient.to_csv(r'caseBangladesh.csv')
+
+#Making dataframe for (ageRange & case), Giving column name,Making csv file
+
+agegroupNumber= pd.DataFrame(agegroupNumber)
+agegroupNumber.columns = ['ageRange', 'noOfCase']
+agegroupNumber.to_csv(r'ageRangeCaseBangladesh.csv')
+
+#Making dataframe for (ageRange & case), Giving column name,Making csv file
+
+historyNumber= pd.DataFrame(historyNumber)
+genderNumber= pd.DataFrame(genderNumber)
+coronaSituationBd = pd.concat([historyNumber, genderNumber])
+coronaSituationBd=coronaSituationBd.T
+coronaSituationBd.columns = [''] * len(coronaSituationBd.columns)
+coronaSituationBd.columns=coronaSituationBd.iloc[0]
+coronaSituationBd.drop(coronaSituationBd.index[0],inplace=True)
+coronaSituationBd.to_csv(r'coronaSituationBd.csv')
+
+print("csv created.Check the location of this script ")
+print("csv file name: caseBangladesh.csv,coronaSituationBd.csv,ageRangeCaseBangladesh.csv.")
