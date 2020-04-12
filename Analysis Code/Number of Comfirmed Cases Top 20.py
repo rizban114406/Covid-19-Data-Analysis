@@ -21,10 +21,14 @@ ax1.spines['left'].set_color('c')#Making graph Left line color cyan
 ax1.spines['right'].set_visible(False)# No right line
 ax1.spines['top'].set_visible(False)# No top line
 ax1.spines['left'].set_linewidth(3) # Left line thick
-
+for i in ax1.patches:
+    print(i)
+    ax1.text(i.get_x()+0.2, i.get_height()+10000, \
+            str(i.get_height()), fontsize=10,
+                color='dimgrey',rotation=85)
 plt.xlabel('Country')
 plt.ylabel('Number of Cases')
 plt.title("Number of Confirmed Covid-19 Cases(Top 20)")
 plt.legend()
-plt.subplots_adjust(left=0.15, bottom=0.30, right=0.94, top=0.90, wspace=0.2, hspace=0)
+plt.subplots_adjust(left=0.15, bottom=0.25, right=0.94, top=.85, wspace=0.2, hspace=0)
 plt.show()

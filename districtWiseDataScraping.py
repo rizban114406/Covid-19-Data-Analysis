@@ -5,6 +5,7 @@ import requests
 
 url = 'https://www.iedcr.gov.bd/website/images/files/nCoV/Confirmed%20cases%20in%20Bangladesh_upto%20April%2011_2020.pdf'
 myfile = requests.get(url)
+print(myfile.content)
 open('iedcr.pdf', 'wb').write(myfile.content)
 try:
     from StringIO import StringIO
@@ -21,7 +22,7 @@ s = re.sub(' +',',',s)
 s = re.sub('NaN+',',',s)
 s = re.sub(',+',' ',s)
 s = StringIO(s)
-with open('DistrictWiseCase.csv', 'w') as f:
+with open('/Analysis Data/DistrictWiseCase.csv', 'w') as f:
     f.write('0,City,case\n')
     for line in s:
         res = len(line.split())

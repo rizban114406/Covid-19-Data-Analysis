@@ -22,6 +22,12 @@ ax1.spines['right'].set_visible(False)# No right line
 ax1.spines['top'].set_visible(False)# No top line
 ax1.spines['left'].set_linewidth(3) # Left line thick
 
+for i in ax1.patches:
+    print(i)
+    ax1.text(i.get_x()+0.2, i.get_height()+.5, \
+            str(i.get_height()), fontsize=10,
+                color='dimgrey',rotation=0)
+
 plt.xlabel('Country')
 plt.ylabel('Number of Cases')
 plt.title("Number of Confirmed Covid-19 Cases(Bottom 20)")
