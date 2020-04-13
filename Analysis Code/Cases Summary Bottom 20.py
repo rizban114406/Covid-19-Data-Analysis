@@ -14,8 +14,8 @@ result = dataFromCsv.sort_values(['totalConfirmed'], ascending= True)
 treatmentCase = result['totalConfirmed'][0:20] - (result['totalDeaths'][0:20] + result['totalRecovered'][0:20])
 print(treatmentCase)
 
-ax1.barh(result['id'][0:20],result['totalDeaths'][0:20], label='Number of Death Cases', color='#8B0000', left = treatmentCase+ result['totalRecovered'][0:20])
-ax1.barh(result['id'][0:20],result['totalRecovered'][0:20],left = treatmentCase, label='Number of Recovered Cases', color='#1E90FF')
+#ax1.barh(result['id'][0:20],result['totalDeaths'][0:20], label='Number of Death Cases', color='#8B0000', left = treatmentCase+ result['totalRecovered'][0:20])
+#ax1.barh(result['id'][0:20],result['totalRecovered'][0:20],left = treatmentCase, label='Number of Recovered Cases', color='#1E90FF')
 ax1.barh(result['id'][0:20],treatmentCase[0:20], label='Number of Corona Cases', color='#CD5C5C')
 ax1.set_xticks([0,2,4,6,8,10,12,14,16])
 ax1.spines['right'].set_visible(False)# No right line

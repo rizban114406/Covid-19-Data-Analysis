@@ -22,5 +22,5 @@ for row in rows:
     data.append([ele for ele in cols if ele])
 testCaseNo= pd.DataFrame(data)
 
-testCaseNo.to_csv(r'CoronaTestCaseNo.csv')
-print('CoronaTestCaseNo.csv created')
+testCaseNo.to_csv(r'./Analysis Data/testCaseNoBD.csv')
+print('TestCaseNoBD.csv created')
