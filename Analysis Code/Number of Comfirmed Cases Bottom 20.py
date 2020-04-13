@@ -10,7 +10,7 @@ fig = plt.figure()
 ax1 = plt.subplot2grid((1,1), (0,0))
 dataFromCsv = pd.read_csv('../Analysis Data/internationalCovid19Status.csv')
 result = dataFromCsv.sort_values(['totalConfirmed'], ascending= True)
-
+print(dataFromCsv.columns)
 ax1.bar(result['id'][0:20],result['totalConfirmed'][0:20], label='Number of Cases', color='#800000')
 
 for label in ax1.xaxis.get_ticklabels(): # loop to change the x axis label rotation
