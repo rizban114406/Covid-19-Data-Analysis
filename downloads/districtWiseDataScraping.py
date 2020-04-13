@@ -11,8 +11,8 @@ try:
     from StringIO import StringIO
 except ImportError:
     from io import StringIO
-df = tabula.read_pdf("iedcr.pdf", encoding='utf-8')
-
+df = tabula.read_pdf("iedcr.pdf", encoding='utf-8',pages=1)
+df
 for x in df:
     s=str(x)
 
@@ -22,7 +22,7 @@ s = re.sub(' +',',',s)
 s = re.sub('NaN+',',',s)
 s = re.sub(',+',' ',s)
 s = StringIO(s)
-with open('/Analysis Data/DistrictWiseCase.csv', 'w') as f:
+with open('./Analysis Data/DistrictWiseCase.csv', 'w+') as f:
     f.write('0,City,case\n')
     for line in s:
         res = len(line.split())
