@@ -123,7 +123,7 @@ day=[]
 for x in range(1,noOfDay):
     day.append(x)
 dateNumberofPatient['day']=day
-dateNumberofPatient.to_csv(r'../Analysis Data/caseBangladesh.csv')
+dateNumberofPatient.to_csv(r'./Analysis Data/caseBangladesh.csv')
 
 print(noOfDay)
 
@@ -133,7 +133,7 @@ print(noOfDay)
 
 agegroupNumber= pd.DataFrame(agegroupNumber)
 agegroupNumber.columns = ['ageRange', 'noOfCase']
-agegroupNumber.to_csv(r'../Analysis Data/ageRangeCaseBangladesh.csv')
+agegroupNumber.to_csv(r'./Analysis Data/ageRangeCaseBangladesh.csv')
 
 #Making dataframe for (ageRange & case), Giving column name,Making csv file
 
@@ -144,7 +144,7 @@ coronaSituationBd=coronaSituationBd.T
 coronaSituationBd.columns = [''] * len(coronaSituationBd.columns)
 coronaSituationBd.columns=coronaSituationBd.iloc[0]
 coronaSituationBd.drop(coronaSituationBd.index[0],inplace=True)
-coronaSituationBd.to_csv(r'../Analysis Data/coronaSituationBd.csv')
+coronaSituationBd.to_csv(r'./Analysis Data/coronaSituationBd.csv')
 
 print("csv created.Check the location of this script ")
 print("csv file name: caseBangladesh.csv,coronaSituationBd.csv,ageRangeCaseBangladesh.csv.")

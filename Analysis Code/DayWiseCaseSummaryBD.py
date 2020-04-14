@@ -10,11 +10,11 @@ fig = plt.figure()
 ax1 = plt.subplot2grid((1,1), (0,0))
 dataFromCsv = pd.read_csv('../Analysis Data/caseBangladesh.csv')
 result = dataFromCsv
-
-ax1.bar(result.day,result.case, label='Number of Cases', color='#800000')
-
+print(result.date.iat[-1])
+ax1.plot(result.day,result.case, label='Number of Cases', color='#EB0706')
+ax1.fill_between(result.day,result.case, facecolor='#EB0706', alpha=0.3)
 for label in ax1.xaxis.get_ticklabels(): # loop to change the x axis label rotation
-    label.set_rotation(90)
+    label.set_rotation(0)
 
 
 ax1.spines['left'].set_color('c')#Making graph Left line color cyan
@@ -22,13 +22,9 @@ ax1.spines['right'].set_visible(False)# No right line
 ax1.spines['top'].set_visible(False)# No top line
 ax1.spines['left'].set_linewidth(5) # Left line thick
 
-for i in ax1.patches:
-    print(i)
-    ax1.text(i.get_x(), i.get_height()+5, \
-            str(i.get_height()), fontsize=7,
-                color='black',rotation=00)
 
-plt.xlabel('Day')
+
+plt.xlabel(result.date.iat[0]+' '+' to '+' '+result.date.iat[-1])
 plt.ylabel('Positive case')
 plt.title("Positive cases from day -1")
 plt.legend()
