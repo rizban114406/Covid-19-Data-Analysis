@@ -11,19 +11,25 @@ ax1 = plt.subplot2grid((1,1), (0,0))
 dataFromCsv = pd.read_csv('../Analysis Data/internationalCovid19Status.csv')
 result = dataFromCsv.sort_values(['totalConfirmed'], ascending= True)
 
-treatmentCase = result['totalConfirmed'][-20:] - (result['totalDeaths'][-20:] + result['totalRecovered'][-20:])
+treatmentCase = result['totalConfirmed'][-10:] - (result['totalDeaths'][-10:] + result['totalRecovered'][-10:])
 print(treatmentCase)
 
-ax1.barh(result['id'][-20:],result['totalDeaths'][-20:], label='Number of Death Cases', color='#8B0000', left = treatmentCase+ result['totalRecovered'][-20:])
-ax1.barh(result['id'][-20:],result['totalRecovered'][-20:],left = treatmentCase, label='Number of Recovered Cases', color='#1E90FF')
-ax1.barh(result['id'][-20:],treatmentCase[-20:], label='Number of Corona Cases', color='#CD5C5C')
+ax1.bar(result['id'][-10:],result['totalDeaths'][-10:], label='Number of Death Cases', color='#8B0000', left = treatmentCase+ result['totalRecovered'][-10:])
+ax1.bar(result['id'][-10:],result['totalRecovered'][-10:],left = treatmentCase, label='Number of Recovered Cases', color='#1E90FF')
+ax1.bar(result['id'][-10:],treatmentCase[-10:], label='Number of Corona Cases', color='#CD5C5C')
+##ax1.bar(result['id'][-10:],treatmentCase[-10:], label='Number of Corona Cases', color='#CD5C5C')
+##ax1.bar(result['id'][-10:],result['totalRecovered'][-10:], label='Number of Recovered Cases', color='#1E90FF')
+##ax1.bar(result['id'][-10:],result['totalDeaths'][-10:], label='Number of Death Cases', color='#8B0000')
 
 ax1.spines['right'].set_visible(False)# No right line
 ax1.spines['top'].set_visible(False)# No top line
 ax1.spines['left'].set_linewidth(2) # Left line thick
 
-##for i in ax1.patches:
-##    print(i)
+for i in ax1.patches:
+    print(i)
+    width, height = i.get_width(), i.get_height()
+    x, y = i.get_xy()
+    ax1.annotate('{:.0%}'.format(height), (x, y + height + 0.01),rotation=85)
 
 plt.xlabel('Country')
 plt.ylabel('Number of Cases')
