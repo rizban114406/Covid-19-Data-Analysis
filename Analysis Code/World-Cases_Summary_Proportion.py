@@ -10,26 +10,28 @@ def func(pct, allvals):
     return "{:.1f}%\n({:d})".format(pct, absolute)
 
 print(plt.style.available)
-##style.use('fivethirtyeight')
+style.use('fivethirtyeight')
 fig = plt.figure()
 ax1 = plt.subplot2grid((1,1), (0,0))
 
 file = open('../Analysis Data/wordSummary.txt', 'r')
 wordData = file.readline()
 wordDataList = wordData.split('-')
+print(wordDataList)
 file.close()
 
-totalDeath = int(wordDataList[4])
-totalRecovered = int(wordDataList[3])
-totalUnderTreatment = int(wordDataList[5]) - (totalDeath + totalRecovered) 
+totalDeath = int(wordDataList[1])
+totalRecovered = int(wordDataList[2])
+totalCase = int(wordDataList[0])
+totalPatient = totalCase - (totalDeath + totalRecovered)
 
-slices = [totalUnderTreatment,totalDeath,totalRecovered]
-activities = ['Under Treatment','Total Death','Total Recovered']
-cols = ['#CD5C5C','#8B0000','#1E90FF']
+slices = [totalCase,totalDeath,totalRecovered]
+activities = ['Patient','Death','Recovered']
+cols = ['#4169E1','#DC143C','#FF7F50']
 _,_,autopcts = ax1.pie(slices,
                        labels=activities,
                        colors=cols,
-                       pctdistance=.8,
+                       pctdistance=.7,
                        startangle=90, #Starting angle point
                        shadow= True,
                        explode=(0.00,0.00,0.1), #Slice out (amount of explotion sleeping, ammount of eating,..)
