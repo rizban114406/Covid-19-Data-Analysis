@@ -7,7 +7,7 @@ from matplotlib import style
 
 def func(pct, allvals):
     absolute = int(pct/100.*np.sum(allvals))
-    return "{:.1f}%\n({:d})".format(pct, absolute)
+    return "{:.1f}%".format(pct)
 
 print(plt.style.available)
 style.use('ggplot')
@@ -33,16 +33,22 @@ slices = [totalPatientNumber,totalDeathNumber,totalRecoveredNumber]
 activities = ['Patient','Death','Recovered']
 
 cols = ['#4169E1','#DC143C','#FF7F50']
-_,_,autopcts = ax1.pie(slices,
-               labels=activities,
+wedges, texts,autopcts = ax1.pie(slices,
+##               labels=activities,
                colors=cols,
-               pctdistance=.9,
-               startangle=-75, #Starting angle point
+               pctdistance=.7,
+               startangle=0, #Starting angle point
                shadow= True,
                explode=(0,0.3,0), #Slice out (amount of explotion sleeping, ammount of eating,..)
                autopct='%1.1f%%')
 ##               autopct=lambda pct: func(pct, slices)) # Adds the percentage
-plt.setp(autopcts, **{'color':'#FFFFFF', 'weight':'bold', 'fontsize':10})
+
+plt.setp(autopcts, **{'color':'#FFFFFF', 'weight':'bold', 'fontsize':12})
+
+ax1.legend(activities,loc="best",
+           bbox_to_anchor=(0.85, 0.5, 0.5, 0.5),
+           prop={'size': 12},)
+
 
 plt.title('Bangladesh Case Summary Proportion')
 plt.show()

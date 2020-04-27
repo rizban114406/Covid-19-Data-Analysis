@@ -43,18 +43,18 @@ for i in ax1.patches:
     if (i.get_height() != 0):
         ax1.text(i.get_x(), i.get_height()+2, \
                 str(i.get_height()), fontsize=12,
-                    color='#4B0082',rotation=85)
+                    color='#4B0082',rotation=0)
 
 for i in ax2.patches:
     if (i.get_height() != 0):
         ax2.text(i.get_x(), i.get_height()+8, \
                 str(i.get_height()), fontsize=12,
-                    color='#4B0082',rotation=85)
+                    color='#4B0082',rotation=0)
 
 for i in ax3.patches:
     if (i.get_height() != 0):
         ax3.text(i.get_x(), i.get_height()+1, \
                 str(i.get_height()), fontsize=12,
-                    color='#4B0082',rotation=85)
+                    color='#4B0082',rotation=0)
 
 plt.show()

@@ -64,11 +64,11 @@ plt.setp(ax1.get_xticklabels(), visible=False)
 plt.setp(ax2.get_xticklabels(), visible=False)
 
 bbox_props = dict(boxstyle='round',fc='w', ec='k',lw=1)
-ax1.annotate(str(totalDeath[-1]), (dataFromCsv['Day'].iloc[-1]+.25, totalDeath[-1]),
+ax1.annotate(str(totalDeath[-1]), (dataFromCsv['Day'].iloc[-1]+.30, totalDeath[-1]-20),
             bbox=bbox_props, fontsize=12, color='#DC143C')
-ax2.annotate(str(totalPatient[-1]), (dataFromCsv['Day'].iloc[-1]+.25, totalPatient[-1]),
+ax2.annotate(str(totalPatient[-1]), (dataFromCsv['Day'].iloc[-1]+.30, totalPatient[-1]-200),
             bbox=bbox_props, fontsize=12, color='#4169E1')
-ax3.annotate(str(totalRecovered[-1]), (dataFromCsv['Day'].iloc[-1]+.25, totalRecovered[-1]),
+ax3.annotate(str(totalRecovered[-1]), (dataFromCsv['Day'].iloc[-1]+.30, totalRecovered[-1]-20),
             bbox=bbox_props, fontsize=12, color='#FF7F50')
 
 for label in ax3.xaxis.get_ticklabels():
@@ -76,16 +76,25 @@ for label in ax3.xaxis.get_ticklabels():
 for i in ax1.patches:
     ax1.text(i.get_x(), i.get_height()+5, \
              str(i.get_height()), fontsize=12,
-             color='#4B0082',rotation=85)
+             color='#4B0082',rotation=0)
 
 for i in ax2.patches:
     ax2.text(i.get_x(), i.get_height()+40, \
              str(i.get_height()), fontsize=12,
-             color='#4B0082',rotation=85)
+             color='#4B0082',rotation=0)
 
 for i in ax3.patches:
     ax3.text(i.get_x(), i.get_height()+5, \
              str(i.get_height()), fontsize=12,
-             color='#4B0082',rotation=85)
+             color='#4B0082',rotation=0)
+
+import datetime
+datetimeobject = datetime.datetime.strptime(str(dataFromCsv['Date'].iloc[1]),'%m/%d/%Y')
+startDate = datetimeobject.strftime('%d-%b-%Y')
+datetimeobject = datetime.datetime.strptime(str(dataFromCsv['Date'].iloc[-1]),'%m/%d/%Y')
+endDate = datetimeobject.strftime('%d-%b-%Y')
+
+xlabel = "Number of Days\n" + str(startDate) + ' UPTO ' + str(endDate)
+plt.xlabel(xlabel)
 
 plt.show()

@@ -1,2 +1,6 @@
 pip install pandas
 pip install mpl-finance
+
+conda install -c anaconda ephem
+conda install -c conda-forge pystan
+conda install -c conda-forge fbprophet

@@ -27,9 +27,16 @@ ax1.bar(dataFromCsv['Day'],totalDeath, color='#DC143C',alpha = 0)
 for i in ax1.patches:
     ax1.text(i.get_x(), i.get_height()+2, \
              str(i.get_height()), fontsize=12,
-             color='#4B0082',rotation=85)
+             color='#4B0082',rotation=0)
 
-xlabel = str(dataFromCsv['Date'].iloc[1]) + ' UPTO ' + str(dataFromCsv['Date'].iloc[-1])
+
+import datetime
+datetimeobject = datetime.datetime.strptime(str(dataFromCsv['Date'].iloc[1]),'%m/%d/%Y')
+startDate = datetimeobject.strftime('%d-%b-%Y')
+datetimeobject = datetime.datetime.strptime(str(dataFromCsv['Date'].iloc[-1]),'%m/%d/%Y')
+endDate = datetimeobject.strftime('%d-%b-%Y')
+
+xlabel = "Number of Days\n" + str(startDate) + ' UPTO ' + str(endDate)
 plt.xlabel(xlabel)
 plt.ylabel('Number of Cases')
 plt.title("Trend Of Bangladesh Covid-19 Death Cases")
