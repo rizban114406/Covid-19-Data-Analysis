@@ -1,0 +1,53 @@
+Division,District,Cases,lat,lon
+Dhaka,Dhaka City,3007,23.8103,90.4125
+Dhaka,Dhaka (District),88,23.8105,90.3372
+Dhaka,Gazipur,318,23.9999,90.4203
+Dhaka,Kishoreganj,194,24.4331,90.7866
+Dhaka,Madaripur,38,23.2393,90.1870
+Dhaka,Manikganj,15,23.8644,90.0047
+Dhaka,Narayanganj,849,23.6238,90.5000
+Dhaka,Munshigonj,82,23.5422,90.5305
+Dhaka,Narshingdi,142,23.9193,90.7176
+Dhaka,Rajbari,14,23.7639,89.6467
+Dhaka,Faridpur,9,23.60187,89.83334
+Dhaka,Tangail,27,24.25135,89.91671
+Dhaka,Shariatpur,24,23.21970,90.35013
+Dhaka,Gopalganj,50,23.01301,89.82241
+Chattogram,Chattogram,67,22.35685,91.78318
+Chattogram,Cox bazar,19,21.42723,92.00581
+Chattogram,Cumilla,47,23.46066,91.18091
+Chattogram,B.Baria,35,23.96082,91.11150
+Chattogram,Laksmipur,34,22.94540,90.83416
+Chattogram,Bandarban,4,22.19356,2.21875
+Chattogram,Noakhali,6,22.82464,91.10173
+Chattogram,Feni,4,23.01591,91.39758
+Chattogram,Chandpur,11,23.23210,90.66307
+Sylhet,Moulovi Bazar,12,24.48427,91.76849
+Sylhet,Sunamganj,26,25.06665,91.40724
+Sylhet,Hobiganj,48,24.38401,91.41690
+Sylhet,Sylhet,16,24.89493,91.86871
+Rangpur,Rangpur,28,25.74389,89.27523
+Rangpur,Gaibandha,19,25.32898,89.54151
+Rangpur,Nilphamari,11,25.93627,88.84070
+Rangpur,Lalmonirhat,2,25.91620,89.45058
+Rangpur,Kurigram,6,25.81035,89.64870
+Rangpur,Dinajpur,16,25.62210,88.64376
+Rangpur,Panchagar,7,26.33538,88.55170
+Rangpur,Thakurgaon,15,26.02736,88.46461
+Mymensingh,Mymensingh,117,24.74715,90.42027
+Mymensingh,Jamalpur,52,24.92498,89.94634
+Mymensingh,Netrokona,27,24.88169,90.72715
+Mymensingh,Sherpur,23,25.01940,90.01373
+Barishal,Barguna,30,22.16051,90.12006
+Barishal,Bhola,4,22.68547,90.64390
+Barishal,Barishal,40,22.70100,90.35345
+Barishal,Potuakhali,23,22.35862,90.33172
+Barishal,Pirojpur,8,22.58411,89.97201
+Barishal,Jhalokathi,6,22.64060,90.19868
+Rajshahi,Joypurhat,21,25.09677,89.02271
+Rajshahi,Pabna,8,24.01286,89.25906
+Rajshahi,Chapainawabganj,2,24.57972,88.27045
+Rajshahi,Bogra,17,24.84808,89.37296
+Rajshahi,Naogaon,1,24.79361,88.93181
+Rajshahi,Sirajganj,3,24.45265,89.68162
+Rajshahi,Rajshahi,10,24.37451,88.60417
